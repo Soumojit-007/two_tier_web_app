@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Two Tier Flask App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .health {
+            margin-top: 30px;
+            padding: 10px;
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Two Tier Flask Application</h1>
+
+    <form action="/submit" method="POST">
+
+        <input
+            type="text"
+            name="new_message"
+            placeholder="Enter a message"
+            required
+        >
+
+        <button type="submit">
+            Add Message
+        </button>
+
+    </form>
+
+
+    <h2>Messages</h2>
+
+    <ul>
+
+        {% for message in messages %}
+
+            <li>
+                {{ message[1] }}
+            </li>
+
+        {% else %}
+
+            <li>
+                No messages yet.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+
+    <div class="health">
+
+        <strong>Application:</strong> Flask<br>
+        <strong>Database:</strong> MySQL<br>
+        <strong>Containerization:</strong> Docker
+
+    </div>
+
+</body>
+
+</html>
